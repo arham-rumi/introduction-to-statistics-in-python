@@ -1,0 +1,12 @@
+
+    Compute the first and third quartiles of emissions_by_country and store these as q1 and q3.
+    Calculate the interquartile range of emissions_by_country and store it as iqr.
+Solution:------------------------
+
+# Calculate total co2_emission per country: emissions_by_country
+emissions_by_country = food_consumption.groupby('country')['co2_emission'].sum()
+
+# Compute the first and third quartiles and IQR of emissions_by_country
+q1 = np.quantile(emissions_by_country, 0.25)
+q3 = np.quantile(emissions_by_country, 0.75)
+iqr = q3 - q1
